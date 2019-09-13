@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://localhost/lic/custmers.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>custmers deatils</title>
+		<link rel="stylesheet" href="./custmers deatils_files/custmers.css">
+		<style>
+			.span1{
+				color:red;
+				
+			}
+			.span2{
+				color:red;
+				
+			}
+			.span3{
+				
+				color:red;
+				
+			}
+			
+			
+		</style>
+		<script>
+			function validationForm()
+			{
+				//alert("This is in validate function");
+				var cont=document.getElementById("cust_phn").value;
+				//alert (cont);
+				var status=document.getElementById("cust_status").value;
+				var heir_name=document.getElementById("cust_heir_name").value;
+			
+			         if(cont=="")
+			        	{
+			        		//alert("Contact is blank");
+							document.getElementById("err_cust_phn").innerHTML="*Custmers phone no. details is compulsary.";
+						
+						}
+						
+						if(status=="")
+			        	{
+			        		//alert("Contact is blank");
+							document.getElementById("err_cust_status").innerHTML="*Custmers status is compulsary.";
+						
+						}
+						
+					if(heir_name=="")
+			        	{
+			        		//alert("Contact is blank");
+							document.getElementById("err_cust_heir_name").innerHTML="*Custmers heir name is compulsary.";
+						
+						}
+						
+					
+					
+					return false;
+			
+			}
+			
+			
+			
+		</script>
+		
+	</head>
+	<body>
+		<form name="frm" id="frm" method="POST" action="http://localhost/lic/add_custmer_action.php">
+	 <div class="main">
+		<fieldset class="fld1">	
+		<legend><h3>Custmers Info</h3></legend>
+	
+			<table>
+	<tbody><tr>
+		<td>Custmers Id</td>
+		<td><input type="text" name="cust_id" id="cust_id"></td>
+	</tr>
+	<tr>
+		<td>Custmers Name</td>
+		<td><input type="text" name="cust_name" id="cust_name" placeholder="custmers name"></td>
+	</tr>
+	<tr>
+		<td>Custmer Email-Id</td>
+		<td><input type="text" name="cust_email" id="cust_email" placeholder="custmers email-id"></td>
+	</tr>
+	<tr>
+		<td>Custmers Phone No.</td>
+		<td><!--<input type="text" name="cust_phn" id="cust_phn" placeholder="custmers phn"   onblur="checkInput(this.id,'custmer phone')">--><input type="text" name="cust_phn" id="cust_phn" placeholder="custmers phn"></td>
+	</tr>
+	<tr><td><span id="err_cust_phn" class="span1"></span></td>
+	</tr>
+	<tr>
+		<td>Custmers Status</td>
+		<td><!--<input type="text" name="cust_status" id="cust_status"   onblur="checkInput(this.id,'custmers status')">-->
+		<input type="text" name="cust_status" id="cust_status"></td>
+	</tr>
+	<tr>
+		<td><span id="err_cust_status" class="span2"></span></td>
+	</tr>
+	</tbody></table>
+	
+
+	</fieldset>
+	
+	
+	<fieldset class="fld2">	
+		<legend><h3>Custmers Details</h3></legend>
+		
+	<table>
+	<tbody><tr>
+		<td>Custmers Details Id </td>
+		<td><input type="text" name="cd_id" id="cd_id"></td>
+	</tr>
+	<tr>
+		<td>Cd Custmers Id</td>
+		<td><input type="text" name="cd_cust_id" id="cd_cust_id" placeholder="custmers id"></td>
+	</tr>
+	<tr>
+		<td>Custmers DOB</td>
+		<td><input type="date" name="cd_dob" id="cd_dob"></td>
+	</tr>
+	<tr>
+		<td>Cd Significant Sign</td>
+		<td><input type="text" name="cd_birth_mark" id="cd_birth_mark"></td>
+	</tr>
+	<tr>
+		<td>Custmers Father Name </td>
+		<td><input type="text" name="cd_fname" id="cd_fname"></td>
+	</tr>
+	<tr>
+		<td>Custmers Mother Name </td>
+		<td><input type="text" name="cd_mname" id="cd_mname"></td>
+	</tr>
+	<tr>
+		<td>Custmers Recent Address</td>
+		<td><textarea name="cd_rec_add" id="cd_rec_add"></textarea></td>
+	</tr>
+	<tr>
+		<td>Custmers Permanent Address</td>
+		<td><textarea name="cd_per_add" id="cd_per_add"></textarea></td>
+	</tr>
+	<tr>
+		<td>Custmers Occupation</td>
+		<td><input type="text" name="cd_occ" id="cd_occ"></td>
+	</tr>
+	<tr>
+		<td>Custmers Age</td>
+		<td><input type="text" name="cd_age" id="cd_age"></td>
+	</tr>
+	<tr>
+		<td>Custmers Heir Name</td>
+		<td><!--<input type="text" name="cd_heir_name" id="cd_heir_name" onfocus="check_input('err_cust_heir_name')" onblur="checkInput(this.id,'custmers heir name')">-->
+		<input type="text" name="cust_heir_name" id="cust_heir_name"></td>
+	</tr>
+	<tr>
+		<td><span id="err_cust_heir_name" class="span3"></span></td>
+	</tr>
+	<tr>
+		<td>Custmers Heirs Age</td>
+		<td><input type="text" name="cd_heir_age" id="cd_heir_age"></td>
+	</tr>
+</tbody></table>
+
+</fieldset>
+
+
+      <div align="center" class="sbm">
+		<input type="submit" name="submit" id="submit" value="SUBMIT" onclick="return validationForm()">
+      </div>			
+    		</div>
+		</form>
+	
+</body></html>

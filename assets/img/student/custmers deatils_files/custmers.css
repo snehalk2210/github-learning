@@ -1,0 +1,29 @@
+.main{
+     position:absolute;
+     top:30px;
+     left:280px;
+     width:500px;
+     height:940px;
+     border:1px solid black;
+     line-height:2;
+    border-spacing: 1px; 
+    
+     
+     }
+     
+.fld1{
+	
+	color:#1a46cc;
+	height:320px;
+	background-color: #fbfccd;
+	
+}
+.fld2
+{
+	
+	color:#1a46cc;
+	height:330spx;
+	background-color: #fbfccd;
+}
+
+

@@ -1,5 +1,0 @@
-SELECT a.av_vegi_id, vg.veg_name, vu.vunit_unit, vr.vr_rate_per_unit
-FROM available_vegies_mst AS a
-JOIN vegitables_mst AS vg ON vg.veg_id = a.av_vegi_id
-JOIN vegies_unit_mst AS vu ON vu.vunit_id = vg.veg_unit_id
-JOIN veegitable_rate_mst AS vr ON vr.vr_veg_id = a.av_vegi_id

@@ -1,182 +1,205 @@
-          
-  <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="sparkline12-list">
-                            <div class="sparkline12-hd">
-                                <div class="main-sparkline12-hd">
-                                    <h1>User Details</h1>
-                                </div>
-                            </div>
-                            <div class="sparkline12-graph">
-                                <div class="basic-login-form-ad">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="all-form-element-inner">
-                                                <form method="post" name="frms" id="frms" action="<?php echo base_url().'User/add_user_action'?>">
-                                                 <input type="hidden" name="user_Id" value="<?php echo $inserted_id?>" >
-                                                    <div class="form-group-inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">First Name</label>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                                <input type="text" name="first" id="first" class="form-control" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group-inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">Last Name</label>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                                <input type="text" name="last" id="last" class="form-control" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group-inner">
-                                                        <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                            
-                                                <label>Phone</label>
-                                            
-                                        </div>
-                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                            <div class="input-mark-inner mg-b-22">
-                                                <input type="text" class="form-control" name="phn" id="phn" data-mask="(999) 999-9999" placeholder="">
-                                                <span class="help-block">(999) 999-9999</span>
-                                            </div>
-                                        </div>
-                                    </div>
+    <?php include('includes/header2.php');?>
+  <html>
+  	<head>
+  		<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.min.css'?>">
+	<link rel="stylesheet" href="<?php echo base_url().'assets/js/bootstrap.min.js'?>">
+  	</head>
+  
+<div class="container-fluid" style="margin-top:30px;margin-left:50px;">
 
-                                                    </div>
-                                                     <div class="form-group-inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                <label class="login2 pull-right pull-right-pro"><span class="basic-ds-n">Gender</span></label>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                                                <div class="bt-df-checkbox">
-                                                                  <input  type="radio"  value="male" name="gender" id="gender" >Male
-		<input type="radio" value="female" name="gender" id="gender" >Female
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group-inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">Address</label>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                                <textarea name="add" id="add" class="form-control" ></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    
-                                                    
-                                                   
-                                                    
-                                                   
-                                                        
-                                                    <div class="form-group-inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">Country</label>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                                <div class="form-select-list">
-                                                                    <select class="form-control custom-select-value" name="country" id="country">
-																			<option value="india">india</option>
-																			<option>Select 2</option>
-																			<option>Select 3</option>
-																			<option>Select 4</option>
-																		</select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group-inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">State</label>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                                <div class="form-select-list">
-                                                                    <select class="form-control custom-select-value" name="state" id="state">
-																			<option value="maharashtra">maharshtra</option>
-																			<option>Select 2</option>
-																			<option>Select 3</option>
-																			<option>Select 4</option>
-																		</select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group-inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">City</label>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                                <div class="form-select-list">
-                                                                    <select class="form-control custom-select-value" name="city" id="city">
-																			<option value="kolhapur">kolhapur</option>
-																			<option>Select 2</option>
-																			<option>Select 3</option>
-																			<option>Select 4</option>
-																		</select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group-inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">Zip Code</label>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                                <div class="form-select-list">
-                                                                    <select class="form-control custom-select-value" name="zip_code" id="zip_code">
-																			<option value="416012">416012</option>
-																			<option>Select 2</option>
-																			<option>Select 3</option>
-																			<option>Select 4</option>
-																		</select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group-inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro"> Detailed Address</label>
-                                                            </div>
-                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                                <textarea name="Dadd" id="Dadd" class="form-control" ></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="form-group-inner">
-                                                        <div class="login-btn-inner">
-                                                            <div class="row">
-                                                                <div class="col-lg-3"></div>
-                                                                <div class="col-lg-9">
-                                                                    <div class="login-horizental cancel-wp pull-left form-bc-ele">
-                                                                        <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Submit</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>          
+  <h5>User Details</h5>
+   <?php echo form_open('Customers/register');?>
+   
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>Username</lable>
+   		<input type="text" name="usr_name" id="usr_name" class="form-control" placeholder="Enter Your Username"/>
+   	</div>
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('usr_name');?>
+   		
+   	</div>
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>Password</lable>
+   		<input type="password" name="pwd" id="pwd" class="form-control" placeholder="Enter Your Password"/>
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('pwd');?>
+   		
+   	</div>	
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>Firstname</lable>
+   		<input type="text" name="first_name" id="first_name" class="form-control" placeholder="Enter Your Firstname"/>
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('first_name');?>
+   		
+   	</div>	
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>Lastname</lable>
+   		<input type="text" name="last_name" id="last_name" class="form-control" placeholder="Enter Your Lastname"/>
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('last_name');?>
+   		
+   	</div>	
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>User Type</lable>
+   		<select type="text" name="usr_type" id="usr_type" class="form-control" >
+   			<option value="">--Select your user type</option>
+				<?php 
+				for($i=0;$i<count($type);$i++){?>								<option value="<?php echo $type[$i]['user_type_id'];?>"><?php echo $type[$i]['user_type'];?></option>
+																			
+				<?php }?>														</select>
+   		</select>
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('usr_type');?>
+   		
+   	</div>	
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>Contact No.</lable>
+   		<input type="text" name="contact" id="contact" class="form-control" placeholder="+91-88-888-88-888"/>
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('contact');?>
+   		
+   	</div>	
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>Gender-</lable>
+   		<input type="radio" name="gender" id="gender" value="male"/> Male <input type="radio" name="gender" id="gender" value="female"/> Female
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" >
+   	<?php echo form_error('gender');?>
+   		
+   	</div>	
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>Address</lable>
+   		<textarea name="address" id="address" class="form-control" ></textarea>
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('address');?>
+   		
+   	</div>	
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>Country</lable>
+   		<select type="text" name="country" id="country" class="form-control">
+   			<option>--select your country--</option>
+   			<option>India</option>
+   			<option>Australia</option>
+   		</select>
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('country');?>
+   		
+   	</div>	
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>State</lable>
+   		<select type="text" name="state" id="state" class="form-control">
+   			<option>--select your state--</option>
+   			<option>Maharashtra</option>
+   			<option>Karnataka</option>
+   		</select>
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('state');?>
+   		
+   	</div>	
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>City</lable>
+   		<select type="text" name="city" id="city" class="form-control">
+   			<option>--select your City--</option>
+   			<option>kolhapur</option>
+   			<option>Belgaum</option>
+   		</select>
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('city');?>
+   		
+   	</div>	
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>Zip Code</lable>
+   		<input type="text" name="zip_code" id="zip_code" class="form-control" placeholder="Enter Your Zip-code"/>
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('zip_code');?>
+   		
+   	</div>	
+   	</div>
+   	<div class="row">
+   	<div class="col-lg-6">
+   	<div class="form-group">
+   	<lable>Detailed Address</lable>
+   		<textarea name="dadd" id="dadd" class="form-control" placeholder="Enter Your Detailed Address Here"></textarea>
+   	</div>
+   		
+   	</div>
+   	<div class="col-lg-6" style="margin-top:30px">
+   	<?php echo form_error('dadd');?>
+   		
+   	</div>	
+   	</div>
+   	 <button type="submit" class="btn btn-primary">Submit</button>
+  
+</div>
+	<!--<?php echo validation_errors();?>-->
+    
+
+     </html>         

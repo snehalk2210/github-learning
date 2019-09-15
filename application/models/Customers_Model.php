@@ -1,27 +1,30 @@
 <?php
 class Customers_Model extends CI_Model {
-	/*function isvalidate($user_name,$pwd)
+	function isvalidate($username,$pwd)
 	{
-		$data=array(
-		            'user_name'=>$user_name,
-		            'password'=>$pwd);
-		$q=$this->db->where($data)
-		            ->get('user_mst');
-		    
-		    //echo "<pre>";
-		     //print_r($q->row()->veg_name);
-		     //exit; 
-		     if($q->num_rows())
-		     {
-		     	$id=$q->row();
-			 	//return $q->row()->id;
-			 }
-			 else
-			 {
-				return false;
-			 }
 		
-	}*/
+		$data=array('user_name'=>$username,
+		                     'pwd'=>$pwd);
+		$q=$this->db->where($data)
+		            ->get('user_details_mst');
+		            
+		            //echo "<pre>";
+		            //print_r($q);
+		            //exit;
+	
+		            
+		    if($q->num_rows())
+		    {
+				//return true;
+				$id=$q->row();
+				return $id;
+				
+			}
+			else
+			{
+				return false;
+			}
+	}
 	
 
 	function getusername($user_id)

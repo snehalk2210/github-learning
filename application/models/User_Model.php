@@ -1,5 +1,34 @@
 <?php
 class User_Model extends CI_Model {
+	
+	function isvalidate($username,$pwd)
+	{
+		
+		$data=array('user_name'=>$username,
+		                     'pwd'=>$pwd);
+		$q=$this->db->where($data)
+		            ->get('user_details_mst');
+		            
+		            //echo "<pre>";
+		            //print_r($q);
+		            //exit;
+	
+		            
+		    if($q->num_rows())
+		    {
+				//return true;
+				$id=$q->row();
+				return $id;
+				
+			}
+			else
+			{
+				return false;
+			}
+	}
+	
+	
+	
 	function get_all_users(){
 		$result=$this->db->get('user_mst');
 		

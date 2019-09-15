@@ -31,95 +31,115 @@ class Customers extends CI_Controller {
 	
 	function login()
 	{
-		$result=$this->User_Model->get_all_types();
-		$data['type']=$result;
-		$data['inner_view']='customers/login';
+		$this->load->view('customers/main_view');
+	}
+	
+	function user_login()
+	{
+		$this->form_validation->set_rules('usr_name','Username','required');
+		$this->form_validation->set_rules('pwd','Password','required|max_length[12]');
+		$this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
+		if($this->form_validation->run())
+		{
+			//echo "validation successful";
+			$username=$this->input->post('usr_name');
+			$pwd=$this->input->post('pwd');
+			$this->load->model('Customers_Model');
+			$id=$this->Customers_Model->isvalidate($username,$pwd);
+			if($id){
+				
+			    //echo "details matched.";
+			    $this->session->set_userdata('id',$id);
+			    return redirect(base_url().'Customers/welcome');
+			}
+			else{
+				//echo "not matched";
+				$this->session->set_flashdata('Login_failed','Invalid Username/Password');
+				redirect(base_url().'Customers/login');
+			}
+		}
+		else{
+			//echo validation_errors();
+			
+	
+		    
+		}
+		
+		//$data['inner_view']='customers/login';
+		//$this->load->view('customers/includes/main_layout2',$data);
+		$this->load->view('customers/login');
+	}
+	
+	public function welcome(){
+		//$this->load->view('customers/welcome_msg');
+		$data['inner_view']='customers/welcome_msg';
 		$this->load->view('customers/includes/main_layout',$data);
 	}
 	
-	function add_login_details()
+	public function register()
 	{
+		$result=$this->User_Model->get_all_types();
+		$data['type']=$result;
+		$this->form_validation->set_rules('usr_name','Username','required');
+		$this->form_validation->set_rules('pwd','Password','required');
+		$this->form_validation->set_rules('first_name','First Name','required|alpha');
+		$this->form_validation->set_rules('last_name','Last Name','required|alpha');
+		$this->form_validation->set_rules('contact','Contact No.','required|numeric');
+		$this->form_validation->set_rules('gender','Gender','required');
+		$this->form_validation->set_rules('address','Address','required');
 		
-		//echo"<pre>";
-		//print_r($this->input->post());
-		//exit;
-		
-		$user_name=$this->input->post('usr_name');
-		$user_type=$this->input->post('usr_type');
-		$email=$this->input->post('email');
-		$pwd=$this->input->post('pwd');
-		/*$id=$this->Customers_Model->isvalidate($user_name,$pwd);
-		if($id)
+		$this->form_validation->set_rules('zip_code','Zip-code','required|numeric');
+		$this->form_validation->set_rules('dadd','Detailed Address','required');
+		$this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
+		if($this->form_validation->run())
 		{
-			echo "details matched";
+			//echo "validation successful";
+			$username=$this->input->post('usr_name');
+			$pwd=$this->input->post('pwd');
+			$this->load->model('Customers_Model');
+			$id=$this->Customers_Model->isvalidate($username,$pwd);
+			if($id)
+			{
+				
+				echo "already exist";
+				//return redirect(base_url().'admin_con/login_form');
+			}
+			else{
+				$first_name=$this->input->post('first_name');
+			    $last_name=$this->input->post('last_name');
+			    $contact=$this->input->post('contact');
+			    $gender=$this->input->post('gender');
+			    $address=$this->input->post('address');
+			    $country=$this->input->post('country');
+			    $state=$this->input->post('state');
+			    $city=$this->input->post('city');
+			    $zip_code=$this->input->post('zip_code');
+			    $dadd=$this->input->post('dadd');
+			    
+				$userd=array('user_name'=>$username,
+			            'pwd'=>$pwd,
+			            'first_name'=>$first_name,
+			            'last_name'=>$last_name,
+			            'contact'=>$contact,
+			            'gender'=>$gender,
+			            'address'=>$address,
+			            'country'=>$country,
+			            'state'=>$state,
+			            'city'=>$city,
+			            'zip_code'=>$zip_code,
+			            'detailed_address'=>$dadd);
+		      $this->load->model('Customers_Model');
+		      $data['inserted_id']=$this->Customers_Model->insert_userdetails($userd);
+		
+		 }
 		}
 		else{
-			echo "not";
-		}*/
-		$user=array('user_name'=>$user_name,
-		            'user_type'=>$user_type,
-		            'email'=>$email,
-		            'password'=>$pwd);
-		
-		$this->session->set_userdata($user);
-		 
-		         
-		$data['inserted_id']=$this->Customers_Model->insert_user($user);
-		$data['inner_view']='customers/add_login_details';
-		$this->load->view('includes/main_layout',$data);
+			//echo "not successful";
+			echo validation_errors();
+		}
+		$this->load->view('customers/add_login_details');
 	}
-	
-	function add_login_action()
-	{
-		/*echo "<pre>";
-		print_r($this->input->post());
-		print_r($_POST);
-		exit;*/
-		$user_id=$this->input->post('user_Id');
-		//$userid=$this->session->userdata('user_id');
-		//$username=$this->Customers_Model->getusername($userid);
-		//$data['rs']=$username;
-		//echo "<pre>";
-		//print_r($userid);
-		//exit;
-		
-		
-		
-		$first_name=$this->input->post('first');
-		$last_name=$this->input->post('last');
-		$phone=$this->input->post('phn');
-		$gender=$this->input->post('gender');
-		$address=$this->input->post('add');
-		$country=$this->input->post('country');
-		$state=$this->input->post('state');
-		$city=$this->input->post('city');
-		$zip_code=$this->input->post('zip_code');
-		$Dadd=$this->input->post('Dadd');
-		
-		
-		
-		$userd=array(
-				     'ud_user_id'=>$user_id,      
-				    'first_name'=>$first_name,
-		            'last_name'=>$last_name,
-		            'contact'=>$phone,
-		            'gender'=>$gender,
-		            'address'=>$address,
-		            'country'=>$country,
-		            'state'=>$state,
-		            'city'=>$city,
-		            'zip'=>$zip_code,
-		            'detailed_address'=>$Dadd);
-		
-		
-		         
-		$this->Customers_Model->insert_userdetails($userd);
-		//echo $this->db->last_query(); 
-		$data['inner_view']='customers/session';
-		$this->load->view('includes/main_layout',$data);
-		
-	}
-	
+
 	
 	function vegies_list()
 	{
